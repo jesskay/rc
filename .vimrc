@@ -59,6 +59,16 @@ colorscheme molokai             " prettify all the colors
 hi Normal ctermbg=None
 hi NonText ctermbg=None
 
+" use jk to return to normal mode
+inoremap jk <esc>
+" disable <esc> so I can't get back into bad habits
+inoremap <esc> <nop>
+" disable arrow keys to enforce learning
+noremap <up> <nop>
+noremap <down> <nop>
+noremap <left> <nop>
+noremap <right> <nop>
+
 " Disable SuperTab in text files where it only gets in the way
 au FileType text,none let b:SuperTabDisabled=1
 au FileType text,none setlocal noautoindent
@@ -68,10 +78,12 @@ au FileType sql let g:sql_type_default = 'postgresql'
 
 " reST
 au FileType rst setlocal textwidth=80
+au FileType rst setlocal colorcolumn=80
 
 " Python
 au FileType python setlocal omnifunc=pythoncomplete#Complete
 au FileType python setlocal textwidth=80 foldmethod=indent
+au FileType python setlocal colorcolumn=80
 au BufNewFile *.py,*.pyw set fileformat=unix
 hi BadWhitespace ctermbg=red guibg=red
 au FileType python match BadWhitespace /^\t\+/
