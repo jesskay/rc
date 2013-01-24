@@ -69,6 +69,15 @@ noremap <down> <nop>
 noremap <left> <nop>
 noremap <right> <nop>
 
+" quickly disable highlights
+nnoremap <space><backspace> :nohlsearch<cr>
+
+" search for next empty line
+nnoremap <space>/ /^$<cr>
+
+" double-space to (un)fold folds; normal space is useless
+nnoremap <space><space> za
+
 " Disable SuperTab in text files where it only gets in the way
 au FileType text,none let b:SuperTabDisabled=1
 au FileType text,none setlocal noautoindent
