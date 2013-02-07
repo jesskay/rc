@@ -25,7 +25,7 @@ set showmatch                   " briefly show matching brackets when inserting 
 set matchtime=2                 " very briefly
 set ruler                       " always display the cursor position
 set showcmd                     " show commands as we type
-set number                      " show line numbers
+set relativenumber              " show relative line numbers
 set cursorline                  " highlight the line we're working on so we don't lose track of it
 set hlsearch                    " highlight the search term so it's easier to find
 set incsearch                   " search as we type
@@ -77,6 +77,16 @@ nnoremap <space>/ /^$<cr>
 
 " double-space to (un)fold folds; normal space is useless
 nnoremap <space><space> za
+
+" switch number mode
+function! g:ToggleNumberingMode()
+    if(&relativenumber == 1)
+        set number
+    else
+        set relativenumber
+    endif
+endfunc
+nnoremap <space># :call g:ToggleNumberingMode()<cr>
 
 " Disable SuperTab in text files where it only gets in the way
 au FileType text,none let b:SuperTabDisabled=1
