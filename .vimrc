@@ -48,8 +48,10 @@ set scrolloff=4                 " start scrolling early to avoid surprises and l
 set hidden                      " permit hidden buffers to contain unsaved changes
 let g:SuperTabDefaultCompletionType = "context" " figure out what completion type to use from context
 set completeopt=menuone,longest,preview " make the completion really pretty and show docstrings
-let mapleader = ","
-let g:mapleader = ","
+let mapleader = " "
+let g:mapleader = " "
+let maplocalleader = ","
+let g:maplocalleader = ","
 " some insert-mode undo voodoo from Eevee
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
@@ -70,13 +72,13 @@ noremap <left> <nop>
 noremap <right> <nop>
 
 " quickly disable highlights
-nnoremap <space><backspace> :nohlsearch<cr>
+nnoremap <leader><backspace> :nohlsearch<cr>
 
 " search for next empty line
-nnoremap <space>/ /^$<cr>
+nnoremap <leader>/ /^$<cr>
 
 " double-space to (un)fold folds; normal space is useless
-nnoremap <space><space> za
+nnoremap <leader><space> za
 
 " switch number mode
 function! g:ToggleNumberingMode()
@@ -86,7 +88,7 @@ function! g:ToggleNumberingMode()
         set relativenumber
     endif
 endfunc
-nnoremap <space># :call g:ToggleNumberingMode()<cr>
+nnoremap <leader># :call g:ToggleNumberingMode()<cr>
 
 " Disable SuperTab in text files where it only gets in the way
 au FileType text,none let b:SuperTabDisabled=1
