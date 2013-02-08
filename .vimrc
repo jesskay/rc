@@ -87,8 +87,13 @@ function! g:ToggleNumberingMode()
     else
         set relativenumber
     endif
+    redraw  " needed for it to operate as intended in command-line mode
 endfunc
-nnoremap <leader># :call g:ToggleNumberingMode()<cr>
+noremap <F3> :call g:ToggleNumberingMode()<cr>
+vnoremap <F3> :call g:ToggleNumberingMode()<cr>gv
+lnoremap <F3> :call g:ToggleNumberingMode()<cr>
+inoremap <F3> <C-o>:call g:ToggleNumberingMode()<cr>
+cnoremap <F3> <C-r>=g:ToggleNumberingMode()?'':''<cr>
 
 " Disable SuperTab in text files where it only gets in the way
 au FileType text,none let b:SuperTabDisabled=1
