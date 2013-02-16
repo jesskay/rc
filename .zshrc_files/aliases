@@ -1,0 +1,7 @@
+# vim: set syntax=zsh:
+# aliases: defines aliases for use in zsh
+alias less='less -i'
+alias ls='ls -lha --color'
+alias mangle='tr AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz UuVvSsTtOoHhKkFfYyZzGgRrNnMmEeXxWwLlCcDdAaBbPpQqIiJj'
+alias unmangle='tr UuVvSsTtOoHhKkFfYyZzGgRrNnMmEeXxWwLlCcDdAaBbPpQqIiJj AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz'
+alias youtube-dl='youtube-dl --prefer-free-formats -t'

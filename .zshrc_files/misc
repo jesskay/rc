@@ -1,0 +1,9 @@
+# vim: set syntax=zsh:
+# misc: options with no obvious category yet
+setopt beep
+unsetopt notify
+
+export BROWSER="firefox"
+export EDITOR="/usr/bin/vim"
+
+export WINEARCH=win32

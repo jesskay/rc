@@ -1,0 +1,98 @@
+# vim: set syntax=zsh:
+# functions: defines functions for use in zsh
+
+unalias pathmunge 2>/dev/null
+unfunction pathmunge 2>/dev/null
+pathmunge () {
+    case ":${PATH}:" in
+        *:"$1":*)
+            ;;
+        *)
+            if [ "$2" = "after" ] ; then
+                PATH=$PATH:$1
+            else
+                PATH=$1:$PATH
+            fi
+    esac
+}
+
+unalias vim 2>/dev/null
+unfunction vim 2>/dev/null
+vim () {
+    if [[ -z "$@" ]]
+    then
+        command vim $([[ -f Session.vim ]] && echo "-S Session.vim")
+    else
+        command vim -p "$@"
+    fi
+}
+
+unalias parse_git_branch 2>/dev/null
+unfunction parse_git_branch 2>/dev/null
+parse_git_branch () {
+    local __GBRANCH=`git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1\:/'``git show HEAD --abbrev-commit 2> /dev/null | head -1 | sed "s/commit //"`
+    echo "%{$(git_changes_color)%}$__GBRANCH%{$reset_color$terminfo[bgr0]%} "
+}
+
+unalias git_changes_color 2>/dev/null
+unfunction git_changes_color 2>/dev/null
+git_changes_color () {
+    if [ -n "$(git diff 2>/dev/null)" ]; then
+        echo $terminfo[bold]$fg[red]
+    ; else
+        echo $terminfo[bold]$fg[green]
+    fi
+}
+
+unalias random_choice 2>/dev/null
+unfunction random_choice 2>/dev/null
+function random_choice {
+    (for item in $@ ; do echo $item ; done) | shuf -n1
+}
+
+unalias title 2>/dev/null
+unfunction title 2>/dev/null
+function title {
+    # param: title to use
+
+    local prefix=''
+
+    # Set screen window title
+    if [[ $TERM == "screen"* ]]; then
+        print -n "\ek$prefix$1\e\\"
+    fi
+
+    # Set xterm window title
+    if [[ $TERM == "xterm"* || $TERM == "screen"* ]]; then
+        print -n "\e]2;$prefix$1\a"
+    fi
+}
+
+unalias trunctitle 2>/dev/null
+unfunction trunctitle 2>/dev/null
+function trunctitle {
+    FULLTITLE="$1"
+    if [ "$FULLTITLE" != "${FULLTITLE:0:27}" ]; then
+      title ${FULLTITLE:0:27}...
+    else
+      title $FULLTITLE
+    fi
+}
+
+function precmd {
+    # Shorten homedir back to '~'
+    local shortpwd=${PWD/$HOME/\~}
+    trunctitle "zsh $shortpwd"
+}
+
+function preexec {
+    trunctitle $*
+}
+
+unalias tmux_tryattach 2>/dev/null
+unfunction tmux_tryattach 2>/dev/null
+tmux_tryattach () {
+    TMUX_SESSION_NAME="$1"
+    shift
+    tmux "$@" new-session -t $TMUX_SESSION_NAME 2>/dev/null || ssh-agent tmux "$@" new-session -s $TMUX_SESSION_NAME
+}

@@ -1,0 +1,6 @@
+# vim: set syntax=zsh:
+# bindings: options for keybindings
+bindkey -e
+
+bindkey "^[[A" history-search-backward
+bindkey "^[[B" history-search-forward

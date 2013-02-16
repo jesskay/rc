@@ -1,0 +1,14 @@
+# vim: set syntax=zsh:
+# prompt: prompt string and related variables
+export HOSTNAME=`/bin/hostname 2>/dev/null`
+
+autoload -U colors zsh/terminfo
+if [[ "$terminfo[colors]" -ge 8 ]]; then
+    colors
+fi
+
+setopt prompt_subst
+PROMPT="
+%(?,%{$fg[green]%}[ok,%{$fg[red]%}[NOT OK)]%{$reset_color$terminfo[bold]%}  %{$fg[cyan]%}%n%{$reset_color$terminfo[bold]%} at %{$fg[magenta]%}%m%{$reset_color$terminfo[bold]%} in %{$fg[red]%}%~%{$reset_color%}
+%{$terminfo[bold]%}%#%{$terminfo[sgr0]%} "
+RPROMPT='$(parse_git_branch)'"%{$fg[white]%}%h%{$reset_color%} %{$terminfo[bold]$fg[magenta]%}%T%{$reset_color$terminfo[sgr0]%}"
