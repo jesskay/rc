@@ -27,6 +27,12 @@ vim () {
     fi
 }
 
+unalias wgetfeh 2>/dev/null
+unfunction wgetfeh 2>/dev/null
+wgetfeh () {
+    wget $1 -q -O - | feh -
+}
+
 unalias parse_git_branch 2>/dev/null
 unfunction parse_git_branch 2>/dev/null
 parse_git_branch () {
