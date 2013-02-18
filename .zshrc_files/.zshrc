@@ -12,12 +12,12 @@ source $ZSHRC_ROOT/paths
 source $ZSHRC_ROOT/prompt
 
 # try to enter tmux, if in a term but not tmux
-if [ "$TERM" = "rxvt-unicode" ]; then
-  if [ -z "$TMUX" ]; then
+if [[ "$TERM" = "rxvt-unicode"* ]]; then
+  if [[ -z "$TMUX" ]]; then
     tmux_tryattach shiftingbits
     exit
   fi
 fi
-if [ "$TERM" = "screen" ]; then
+if [[ "$TERM" = "screen" ]]; then
   export TERM=screen-256color
 fi
