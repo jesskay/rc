@@ -1,3 +1,7 @@
+" Fix runtimepath on windows
+if has('win32') || has('win64')
+  set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
+endif
 " Global
 filetype plugin indent on       " turn on all the filetype shit
 syntax on                       " turn on syntax highlighting
