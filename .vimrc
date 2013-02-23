@@ -39,6 +39,7 @@ set autoindent                  " preserve indentation level for newlines
 set shiftwidth=4                " indent 4 spaces per level
 set softtabstop=4               " indent 4 spaces per tab
 set expandtab                   " don't use literal tab characters
+set cpoptions+=J                " use double-spacing to demark sentence boundaries (per http://stevelosh.com/blog/2012/10/why-i-two-space/)
 set fileformats=unix,dos        " prefer unix line endings, but begrudgingly permit dos line endings
 set encoding=utf-8              " use unicode
 setglobal fileencoding=utf-8    " I mean it, use unicode
