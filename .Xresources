@@ -10,4 +10,4 @@ URxvt.tintColor: #333333
 URxvt.secondaryWheel: true
 URxvt.perl-ext-common: default,matcher
 URxvt.matcher.button: 1
-URxvt.urlLauncher: firefox
+URxvt.url-launcher: firefox
