@@ -5,6 +5,7 @@ pathmunge $HOME/.local/bin after
 
 pathmunge $HOME/android-sdk-linux/platform-tools
 pathmunge $HOME/android-sdk-linux/tools
+pathmunge $HOME/pharo2.0
 
 export PYTHONSTARTUP=~/.pythonrc.py
 

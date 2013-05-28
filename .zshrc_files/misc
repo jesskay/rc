@@ -5,5 +5,3 @@ unsetopt notify
 
 export BROWSER="firefox"
 export EDITOR="/usr/bin/vim"
-
-export WINEARCH=win32

@@ -129,7 +129,7 @@ au BufNewFile *.html 0read ~/.vim/skel/html
 
 " CSS
 au FileType css setlocal foldmethod=syntax
-au FileType css setlocal shiftwidth=1 softtabstop=1
+au FileType css setlocal shiftwidth=2 softtabstop=2
 au BufNewFile *.css 0read ~/.vim/skel/css
 
 " Magic global settings that have to go after everything else
