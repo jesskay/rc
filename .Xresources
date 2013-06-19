@@ -1,12 +1,10 @@
+URxvt.depth: 32
 URxvt.background: [85]black
 URxvt.foreground: grey80
 URxvt.font: xft:DejaVu Sans Mono:pixelsize=12:hinting=true:antialias=true
 URxvt.boldFont: xft:DejaVu Sans Mono:bold:pixelsize=12:hinting=true:antialias=true
-URxvt.depth: 32
 URxvt.searchable-scrollback: CM-s
 URxvt.scrollBar: false
-URxvt.transparent: true
-URxvt.tintColor: #333333
 URxvt.secondaryWheel: true
 URxvt.perl-ext-common: default,url-select
 URxvt.keysym.M-u: perl:url-select:select_next
