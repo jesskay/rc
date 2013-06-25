@@ -100,5 +100,5 @@ unfunction tmux_tryattach 2>/dev/null
 tmux_tryattach () {
     TMUX_SESSION_NAME="$1"
     shift
-    ssh-agent tmux "$@" new-session -t $TMUX_SESSION_NAME 2>/dev/null || ssh-agent tmux "$@" new-session -s $TMUX_SESSION_NAME
+    tmux "$@" new-session -t $TMUX_SESSION_NAME 2>/dev/null || tmux "$@" new-session -s $TMUX_SESSION_NAME
 }

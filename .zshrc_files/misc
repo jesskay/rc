@@ -5,3 +5,16 @@ unsetopt notify
 
 export BROWSER="firefox"
 export EDITOR="/usr/bin/vim"
+
+if [[ ! -f "$HOME/.ssh_agent.env" ]]
+then
+    (ssh-agent | head -n2) > $HOME/.ssh_agent.env
+    source $HOME/.ssh_agent.env
+else
+    source $HOME/.ssh_agent.env
+    if [[ ! "$(ps -p $SSH_AGENT_PID -o comm=)" = "ssh-agent" ]]
+    then
+        (ssh-agent | head -n2) > $HOME/.ssh_agent.env
+        source $HOME/.ssh_agent.env
+    fi
+fi
