@@ -1,7 +1,7 @@
 # vim: set syntax=zsh:
 # completion: sets completion options
 zstyle ':completion:*' add-space true
-zstyle ':completion:*' completer _expand _complete _ignored _match _approximate _prefix
+zstyle ':completion:*' completer _complete _expand _ignored _match _approximate _prefix
 zstyle ':completion:*' completions 1
 zstyle ':completion:*' expand suffix
 zstyle ':completion:*' file-sort name
