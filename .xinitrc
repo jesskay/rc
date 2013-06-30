@@ -6,8 +6,8 @@ export GTK_IM_MODULE=xim
 export QT_IM_MODULE=xim
 
 # setup trackstick tweaks and disable touchpad
-synclient TouchpadOff=1 \
-          TrackstickSpeed=60
+synclient TouchpadOff=1
+xinput set-prop "TPPS/2 IBM TrackPoint" "Device Accel Profile" 2
 xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 1
 xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 2
 xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 6 7 4 5
