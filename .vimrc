@@ -3,6 +3,7 @@ if has('win32') || has('win64')
   set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
 endif
 " Global
+execute pathogen#infect()
 filetype plugin indent on       " turn on all the filetype shit
 syntax on                       " turn on syntax highlighting
 set nocompatible                " because fuck vi
@@ -61,7 +62,7 @@ let g:maplocalleader = ","
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
 set background=dark t_Co=256    " make sure vim knows my background is dark and my terminal can do 256 colors
-colorscheme molokai             " prettify all the colors
+colorscheme badwolf             " prettify all the colors
 " Override the background color from the colorscheme so I can still see my pretty background image in vim
 hi Normal ctermbg=None
 hi NonText ctermbg=None
