@@ -15,5 +15,8 @@ xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 6 7 4 5
 # compositor, quick fades and a tiny inactive dim
 compton -f -I 0.07 -O 0.08 -D 9 --inactive-dim 0.03 -b
 
+# start redshift
+redshift &
+
 # run the wm
 exec startfluxbox
