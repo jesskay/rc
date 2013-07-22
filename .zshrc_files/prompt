@@ -8,7 +8,35 @@ if [[ "$terminfo[colors]" -ge 8 ]]; then
 fi
 
 setopt prompt_subst
+
+_LAST_CMD_OK="%{$fg[green]%}[ok]%{$reset_color%}"
+_LAST_CMD_NOT_OK="%{$fg[red]%}[NOT OK]%{$reset_color%}"
+_LAST_CMD_STATUS="%(?,${_LAST_CMD_OK},${_LAST_CMD_NOT_OK})"
+
+_USERNAME="%{$terminfo[bold]$fg[cyan]%}%n%{$reset_color%}"
+
+_HOSTNAME="%{$terminfo[bold]$fg[magenta]%}%m%{$reset_color%}"
+
+_PWD="%{$terminfo[bold]$fg[red]%}"'${PWD/#$HOME/~}'"%{$reset_color%}"
+
+_BRANCH=
+
+function _prompt_char {
+    if (git branch >/dev/null 2>/dev/null) ; then
+        if [ -n "$(git diff 2>/dev/null)" ] ; then
+            echo -n "%{$fg[red]%}"
+        else
+            echo -n "%{$fg[green]%}"
+        fi
+        echo -n $(git branch | grep \^\\\* | cut -d' ' -f2-)
+        echo -n " ±%{${reset_color}%}"
+        return
+    fi
+    (hg root >/dev/null 2>/dev/null) && echo '☿' && return
+    echo '○'
+}
+_PROMPT='$(_prompt_char)'"%{$terminfo[sgr0]%} "
+
 PROMPT="
-%(?,%{$fg[green]%}[ok,%{$fg[red]%}[NOT OK)]%{$reset_color$terminfo[bold]%}  %{$fg[cyan]%}%n%{$reset_color$terminfo[bold]%} at %{$fg[magenta]%}%m%{$reset_color$terminfo[bold]%} in %{$fg[red]%}%~%{$reset_color%}
-%{$terminfo[bold]%}%#%{$terminfo[sgr0]%} "
-RPROMPT='$(parse_git_branch)'"%{$fg[white]%}%h%{$reset_color%} %{$terminfo[bold]$fg[magenta]%}%T%{$reset_color$terminfo[sgr0]%}"
+${_LAST_CMD_STATUS} ${_USERNAME} at ${_HOSTNAME} in ${_PWD}
+${_PROMPT}"
