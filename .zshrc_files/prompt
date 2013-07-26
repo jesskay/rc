@@ -9,8 +9,8 @@ fi
 
 setopt prompt_subst
 
-_LAST_CMD_OK="%{$fg[green]%}[ok]%{$reset_color%}"
-_LAST_CMD_NOT_OK="%{$fg[red]%}[NOT OK]%{$reset_color%}"
+_LAST_CMD_OK="%{$fg[green]%}["'$?'"]%{$reset_color%}"
+_LAST_CMD_NOT_OK="%{$fg[red]%}["'$?'"]%{$reset_color%}"
 _LAST_CMD_STATUS="%(?,${_LAST_CMD_OK},${_LAST_CMD_NOT_OK})"
 
 _USERNAME="%{$terminfo[bold]$fg[cyan]%}%n%{$reset_color%}"
