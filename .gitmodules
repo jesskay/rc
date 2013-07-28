@@ -1,0 +1,6 @@
+[submodule ".vim/bundle/badwolf"]
+	path = .vim/bundle/badwolf
+	url = http://github.com/sjl/badwolf/
+[submodule ".vim/bundle/rust"]
+	path = .vim/bundle/rust
+	url = https://github.com/wting/rust.vim
