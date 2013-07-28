@@ -5,3 +5,6 @@
 	default = upstream
 [color]
 	ui = auto
+[url "git@github.com:bit-shift/"]
+        pushInsteadOf = https://github.com/bit-shift/
+        pushInsteadOf = git://github.com/bit-shift/
