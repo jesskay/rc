@@ -1,0 +1,7 @@
+[user]
+	email = bitshift@bigmacintosh.net
+	name = Bit Shift
+[push]
+	default = upstream
+[color]
+	ui = auto
