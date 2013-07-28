@@ -8,3 +8,6 @@
 [url "git@github.com:bit-shift/"]
         pushInsteadOf = https://github.com/bit-shift/
         pushInsteadOf = git://github.com/bit-shift/
+[url "git@github.com:Toksyuryel/utilities.git"]
+        pushInsteadOf = https://github.com/Toksyuryel/utilities.git
+        pushInsteadOf = git://github.com/Toksyuryel/utilities.git
