@@ -25,6 +25,8 @@ function _prompt_char {
     if (git branch >/dev/null 2>/dev/null) ; then
         if [ -n "$(git diff 2>/dev/null)" ] ; then
             echo -n "%{$fg[red]%}"
+        elif [ -n "$(git status 2>/dev/null | grep '^\# Untracked files:$')" ] ; then
+            echo -n "%{$fg[yellow]%}"
         else
             echo -n "%{$fg[green]%}"
         fi
