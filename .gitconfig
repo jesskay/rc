@@ -11,3 +11,5 @@
 [url "git@github.com:Toksyuryel/utilities.git"]
         pushInsteadOf = https://github.com/Toksyuryel/utilities.git
         pushInsteadOf = git://github.com/Toksyuryel/utilities.git
+[core]
+	excludesfile = /home/bitshift/.gitignore-global

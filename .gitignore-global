@@ -1,0 +1,8 @@
+# vim
+.*.swp
+
+# compiled output
+*.o
+*.so
+*.py
+**/__pycache__/
