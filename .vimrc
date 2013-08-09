@@ -76,6 +76,11 @@ noremap <up> <nop>
 noremap <down> <nop>
 noremap <left> <nop>
 noremap <right> <nop>
+" and in insert mode
+inoremap OA <nop>
+inoremap OB <nop>
+inoremap OD <nop>
+inoremap OC <nop>
 
 " quickly disable highlights
 nnoremap <leader><backspace> :nohlsearch<cr>
