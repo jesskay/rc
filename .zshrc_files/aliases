@@ -6,3 +6,4 @@ alias mangle='tr AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz UuVvSsTtOo
 alias unmangle='tr UuVvSsTtOoHhKkFfYyZzGgRrNnMmEeXxWwLlCcDdAaBbPpQqIiJj AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz'
 alias youtube-dl='noglob youtube-dl -tf 45/22/44/43/18'
 alias syncplay='syncplay --no-gui'
+alias git='hub'

@@ -24,6 +24,7 @@ zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p
 zstyle ':completion:*' substitute 'NUMERIC == 2'
 zstyle ':completion:*' verbose true
 zstyle :compinstall filename '/home/bitshift/.zshrc'
+fpath=("$HOME/.zshrc_files/completions" $fpath)
 autoload -Uz compinit
 compinit
 setopt autocd extendedglob nomatch
