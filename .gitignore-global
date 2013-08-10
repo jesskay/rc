@@ -6,3 +6,6 @@
 *.so
 *.pyc
 **/__pycache__/
+**/build/lib/**/*.py
+**/*.egg-info/
+**/dist/*.egg
