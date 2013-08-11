@@ -1,21 +1,43 @@
+set nocompatible                " because fuck vi
+
 " Fix runtimepath on windows
 if has('win32') || has('win64')
   set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
 endif
 
-" Vundle and its bundles
+" Bootstrap vundle if needed
+let already_had_vundle=1
+if !filereadable($HOME."/.vim/bundle/vundle/README.md")
+    echo "Bootstrapping vundle..."
+    echo ""
+    silent !mkdir -p "$HOME/.vim/bundle"
+    silent !git clone https://github.com/gmarik/vundle "$HOME/.vim/bundle/vundle"
+    let already_had_vundle=0
+endif
+
+" Initialize vundle
+filetype off                    " required for vundle to work well apparently?
 set rtp+=~/.vim/bundle/vundle   " use vundle (replaces pathogen from old rc)
 call vundle#rc()
 
+" Vundle itself
 Bundle 'gmarik/vundle'
+
+" Bundles to use
 Bundle 'sjl/badwolf'
 Bundle 'wting/rust.vim'
 Bundle 'Valloric/YouCompleteMe'
 
+" Install bundles now if we're bootstrapping vundle
+if already_had_vundle == 0
+    echo "Installing bundles..."
+    echo ""
+    :BundleInstall
+endif
+
 " Global
 filetype plugin indent on       " turn on all the filetype shit
 syntax on                       " turn on syntax highlighting
-set nocompatible                " because fuck vi
 set titlestring=vim\ %{expand(\"%t\")} " set up what we want our title to be
 if &term =~ "^screen"           " some magic to fix the window title in screen/tmux
   if &term == "screen-256color" " and this magic fixes ctrl+arrow

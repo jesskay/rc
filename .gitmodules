@@ -1,9 +1,3 @@
-[submodule ".vim/bundle/badwolf"]
-	path = .vim/bundle/badwolf
-	url = http://github.com/sjl/badwolf/
-[submodule ".vim/bundle/rust"]
-	path = .vim/bundle/rust
-	url = https://github.com/wting/rust.vim
 [submodule "MozTT_font"]
 	path = MozTT_font
 	url = https://github.com/mozilla-b2g/moztt.git
