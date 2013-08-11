@@ -28,6 +28,7 @@ Bundle 'sjl/badwolf'
 Bundle 'wting/rust.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'Townk/vim-autoclose'
 
 " Install bundles now if we're bootstrapping vundle
 if already_had_vundle == 0
@@ -122,19 +123,6 @@ nnoremap <leader>/ /^$<cr>
 
 " double-space to (un)fold folds; normal space is useless
 nnoremap <leader><space> za
-
-" pair completion bindings (with ternary expression fun for skipping over a
-" closing character by typing it, and only opening when at the end of a line)
-inoremap <expr> (       strpart(getline('.'), col('.')-1) == "" ? "()<Left>" : "("
-inoremap <expr> )       strpart(getline('.'), col('.')-1, 1) == ")" ? "<Right>" : ")"
-inoremap <expr> {       strpart(getline('.'), col('.')-1) == "" ? "{}<Left>" : "{"
-inoremap <expr> }       strpart(getline('.'), col('.')-1, 1) == "}" ? "<Right>" : "}"
-inoremap <expr> <       strpart(getline('.'), col('.')-1) == "" ? "<><Left>" : "<"
-inoremap <expr> >       strpart(getline('.'), col('.')-1, 1) == ">" ? "<Right>" : ">"
-inoremap <expr> [       strpart(getline('.'), col('.')-1) == "" ? "[]<Left>" : "["
-inoremap <expr> ]       strpart(getline('.'), col('.')-1, 1) == "]" ? "<Right>" : "]"
-inoremap <expr> "       strpart(getline('.'), col('.')-2) == " " ? "\"\"<Left>" : strpart(getline('.'), col('.')-1, 1) == "\"" ? "<Right>" : "\""
-inoremap <expr> '       strpart(getline('.'), col('.')-2) == " " ? "''<Left>" : strpart(getline('.'), col('.')-1, 1) == "'" ? "<Right>" : "'"
 
 " switch number mode
 function! g:ToggleNumberingMode()
