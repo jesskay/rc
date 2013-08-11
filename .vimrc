@@ -27,6 +27,7 @@ Bundle 'gmarik/vundle'
 Bundle 'sjl/badwolf'
 Bundle 'wting/rust.vim'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'Lokaltog/vim-easymotion'
 
 " Install bundles now if we're bootstrapping vundle
 if already_had_vundle == 0
