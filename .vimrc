@@ -2,8 +2,17 @@
 if has('win32') || has('win64')
   set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
 endif
+
+" Vundle and its bundles
+set rtp+=~/.vim/bundle/vundle   " use vundle (replaces pathogen from old rc)
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'sjl/badwolf'
+Bundle 'wting/rust.vim'
+Bundle 'Valloric/YouCompleteMe'
+
 " Global
-execute pathogen#infect()
 filetype plugin indent on       " turn on all the filetype shit
 syntax on                       " turn on syntax highlighting
 set nocompatible                " because fuck vi
