@@ -1,6 +1,11 @@
 # vim: set syntax=zsh:
-# prompt: prompt string and related variables
+# prompt: prompt string and line editing
 export HOSTNAME=`/bin/hostname 2>/dev/null`
+
+setopt interactivecomments
+
+# normal WORDCHARS minus forward-slash, so paths are easier to work with
+export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
 autoload -U colors zsh/terminfo
 if [[ "$terminfo[colors]" -ge 8 ]]; then
