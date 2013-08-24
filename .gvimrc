@@ -1,2 +1,2 @@
-set guioptions=  " no silly GUI
-set guifont=DejaVu\ Sans\ Mono:h10:cANSI  " good font
+set go=
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
