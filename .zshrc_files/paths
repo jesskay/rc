@@ -9,6 +9,7 @@ pathmunge $HOME/pharo2.0
 
 export PYTHONSTARTUP=~/.pythonrc.py
 
+unset GOROOT  # distro-provided Go packages have their own GOROOT hardcoded, so setting this would only fuck them up
 export GOPATH=$HOME/.go
 pathmunge $GOPATH/bin
 
