@@ -9,7 +9,7 @@ pathmunge $HOME/pharo2.0
 
 export PYTHONSTARTUP=~/.pythonrc.py
 
-export GOROOT=$HOME/go
-pathmunge $GOROOT/bin
+export GOPATH=$HOME/.go
+pathmunge $GOPATH/bin
 
 export PATH
