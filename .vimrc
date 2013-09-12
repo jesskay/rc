@@ -87,6 +87,7 @@ set scrolloff=4                 " start scrolling early to avoid surprises and l
 set hidden                      " permit hidden buffers to contain unsaved changes
 let g:SuperTabDefaultCompletionType = "context" " figure out what completion type to use from context
 set completeopt=menuone,longest,preview " make the completion really pretty and show docstrings
+let g:AutoCloseExpandEnterOn = "{"
 let mapleader = " "
 let g:mapleader = " "
 let maplocalleader = ","
