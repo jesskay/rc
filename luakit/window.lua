@@ -7,6 +7,9 @@ require "lfs"
 -- Window class table
 window = {}
 
+-- Vertitabs custom replacement for Lousy tablist
+local vertitabs = require "vertitabs"
+
 -- List of active windows by window widget
 window.bywidget = setmetatable({}, { __mode = "k" })
 
@@ -25,10 +28,11 @@ function window.build()
         win    = widget{type="window"},
         ebox   = eventbox(),
         layout = vbox(),
+        tab_layout = hbox(),
         paned  = widget{type="vpaned"},
         tabs   = notebook(),
         -- Tablist widget
-        tablist = lousy.widget.tablist(),
+        tablist = vertitabs(),
         -- Status bar widgets
         sbar = {
             layout = hbox(),
@@ -73,10 +77,14 @@ function window.build()
     w.win.child = w.ebox
 
     -- Pack tablist
-    w.layout:pack(w.tablist.widget)
+    -- w.tab_layout:pack(w.tablist.widget, { expand = true, fill = true })
+    w.tab_layout:pack(w.tablist.widget)
 
     -- Pack notebook
-    w.layout:pack(w.tabs, { expand = true, fill = true })
+    w.tab_layout:pack(w.tabs, { expand = true, fill = true })
+
+    -- Pack tab_layout
+    w.layout:pack(w.tab_layout, { expand = true, fill = true })
 
     -- Pack left-aligned statusbar elements
     local l = w.sbar.l
