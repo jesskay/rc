@@ -12,6 +12,9 @@ xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 1
 xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 2
 xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 6 7 4 5
 
+# set background
+fbsetbg -a ~/pictures/wallpaper/umbreon_minimalist_wallpaper_by_ecmc1093-d6l1a6e.jpg
+
 # compositor, quick fades and a tiny inactive dim
 compton -f -I 0.07 -O 0.08 -D 9 --inactive-dim 0.03 -b
 
